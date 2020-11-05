@@ -8,12 +8,13 @@ end
 
 def input_to_index(user_input)
   index = user_input.to_i
+  index -= 1
   return index
 end
 
 def valid_move?(board, index)
-  def position_taken?(array, ind)
-    if array[ind] == " " || array[ind] == "" || array[ind] == nil
+  def position_taken?(array, index)
+    if array[index] == " " || array[index] == "" || array[index] == nil
       return false
     else
       return true
@@ -37,10 +38,10 @@ end
 
 def move(board, index, character = "X")
   board[index] = character
-  board
+  return board
 end
 
-def turn(board)
+def turn (board)
   puts "Please enter 1-9:"
   num = gets.chomp
   index = input_to_index(user_input)

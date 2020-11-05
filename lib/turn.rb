@@ -13,16 +13,16 @@ def input_to_index(user_input)
 end
 
 def valid_move?(board, index)
-  def position_taken?(array, index)
-    if array[index] == " " || array[index] == "" || array[index] == nil
-      return false
+  def position_taken?(array, ind)
+    if array[ind] == " " || array[ind] == "" || array[ind] == nil
+      false
     else
-      return true
+      true
     end
   end
 
-  def on_board?(user_input)
-    if user_input.between?(0, 8) == true
+  def on_board?(integer)
+    if integer.between?(0, 8) == true
      true
     else
      false
@@ -30,9 +30,9 @@ def valid_move?(board, index)
   end
 
   if (position_taken?(board, index)) == false && (on_board?(index) == true)
-    return true
+    true
   else
-    return false
+    false
   end
 end
 
@@ -43,7 +43,7 @@ end
 
 def turn (board)
   puts "Please enter 1-9:"
-  num = gets.chomp
+  integer = gets.chomp
   index = input_to_index(user_input)
   if valid_move?(board, index) == true
     move(board, index)

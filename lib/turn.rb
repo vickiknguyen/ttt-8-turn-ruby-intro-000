@@ -8,7 +8,6 @@ end
 
 def input_to_index(user_input)
   index = user_input.to_i
-  index -= 1
   return index
 end
 
@@ -21,11 +20,11 @@ def valid_move?(board, index)
     end
   end
 
-  def on_board?(num)
-    if num.between?(0, 8) == true
-      return true
+  def on_board?(user_input)
+    if user_input.between?(0, 8) == true
+     true
     else
-      return false
+     false
     end
   end
 
@@ -38,13 +37,13 @@ end
 
 def move(board, index, character = "X")
   board[index] = character
-  return board
+  board
 end
 
-def turn (board)
+def turn(board)
   puts "Please enter 1-9:"
   num = gets.chomp
-  index = input_to_index(num)
+  index = input_to_index(user_input)
   if valid_move?(board, index) == true
     move(board, index)
     display_board(board)
